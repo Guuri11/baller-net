@@ -9,8 +9,10 @@ import {
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
+import { useOnboardingStore } from '@/lib/stores/onboardingStore';
+import { useRouter, Slot, usePathname } from 'expo-router';
 import { useColorScheme } from '@/components/useColorScheme';
-import { Slot, usePathname } from 'expo-router';
+// ...existing code...
 import { StatusBar } from 'expo-status-bar';
 import { Fab, FabIcon } from '@/components/ui/fab';
 import { MoonIcon, SunIcon } from '@/components/ui/icon';
@@ -27,18 +29,33 @@ export default function RootLayout() {
     SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   });
+  const [onboardingLoaded, setOnboardingLoaded] = useState(false);
+  const hasSeenOnboarding = useOnboardingStore(s => s.hasSeenOnboarding);
+  const loadOnboarding = useOnboardingStore(s => s.loadOnboarding);
+  const router = useRouter();
 
-  const [styleLoaded, setStyleLoaded] = useState(false);
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
+
+  useEffect(() => {
+    loadOnboarding().then(() => setOnboardingLoaded(true));
+  }, []);
+
+  useEffect(() => {
+    if (onboardingLoaded && !hasSeenOnboarding) {
+  router.replace('./onboarding');
+    }
+  }, [onboardingLoaded, hasSeenOnboarding]);
 
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  // Wait for onboarding state to load before rendering
+  if (!loaded || !onboardingLoaded) return null;
   return <RootLayoutNav />;
 }
 
