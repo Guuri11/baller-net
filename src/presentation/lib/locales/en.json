@@ -3,5 +3,17 @@
 		"title": "Welcome to Baller Net!",
 		"description": "Baller Net is the basketball social network where you can connect, share, and engage with your favorite sport. Discover features, meet fans, and join the community!",
 		"getStarted": "Get Started"
+	},
+	"login": {
+		"title": "Sign in to Baller Net",
+		"email": "Email",
+		"password": "Password",
+		"submit": "Sign In",
+		"error": "Invalid email or password. Please try again."
+	},
+	"session": {
+		"error": {
+			"not_authenticated": "You must be signed in to access this page."
+		}
 	}
 }

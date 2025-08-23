@@ -3,8 +3,17 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
+      "@presentation/*": [
         "./src/presentation/*"
+      ],
+      "@domain/*": [
+        "./src/domain/*"
+      ],
+      "@application/*": [
+        "./src/application/*"
+      ],
+      "@infrastructure/*": [
+        "./src/infrastructure/*"
       ],
       "tailwind.config": [
         "./tailwind.config.js"

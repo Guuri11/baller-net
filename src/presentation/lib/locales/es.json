@@ -3,5 +3,17 @@
 		"title": "¡Bienvenido a Baller Net!",
 		"description": "Baller Net es la red social de baloncesto donde puedes conectar, compartir y disfrutar de tu deporte favorito. ¡Descubre funciones, conoce fans y únete a la comunidad!",
 		"getStarted": "Comenzar"
+	},
+	"login": {
+		"title": "Inicia sesión en Baller Net",
+		"email": "Correo electrónico",
+		"password": "Contraseña",
+		"submit": "Iniciar sesión",
+		"error": "Correo o contraseña inválidos. Inténtalo de nuevo."
+	},
+	"session": {
+		"error": {
+			"not_authenticated": "Debes iniciar sesión para acceder a esta página."
+		}
 	}
 }

@@ -1,38 +1,40 @@
-import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
-import '@/global.css'
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import "@/global.css";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
-} from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useState } from 'react';
-import { useOnboardingStore } from '@/lib/stores/onboardingStore';
-import { useRouter, Slot, usePathname } from 'expo-router';
-import { useColorScheme } from '@/components/useColorScheme';
+} from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useState } from "react";
+import { useRouter, Slot, usePathname } from "expo-router";
+import { useSession } from "@presentation/lib/session";
 // ...existing code...
-import { StatusBar } from 'expo-status-bar';
-import { Fab, FabIcon } from '@/components/ui/fab';
-import { MoonIcon, SunIcon } from '@/components/ui/icon';
+import { StatusBar } from "expo-status-bar";
+import { useOnboardingStore } from "@presentation/lib/stores/onboardingStore";
+import { GluestackUIProvider } from "@presentation/components/ui/gluestack-ui-provider";
+import { Fab, FabIcon } from "@presentation/components/ui/fab";
+import { MoonIcon, SunIcon } from "@presentation/components/ui/icon";
 
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
-} from 'expo-router';
+} from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("@/assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
   const [onboardingLoaded, setOnboardingLoaded] = useState(false);
-  const hasSeenOnboarding = useOnboardingStore(s => s.hasSeenOnboarding);
-  const loadOnboarding = useOnboardingStore(s => s.loadOnboarding);
+  const hasSeenOnboarding = useOnboardingStore((s) => s.hasSeenOnboarding);
+  const loadOnboarding = useOnboardingStore((s) => s.loadOnboarding);
   const router = useRouter();
+  const pathname = usePathname();
+  const { session, loading: sessionLoading } = useSession();
 
   useEffect(() => {
     if (error) throw error;
@@ -44,7 +46,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (onboardingLoaded && !hasSeenOnboarding) {
-  router.replace('./onboarding');
+      router.replace("/onboarding");
     }
   }, [onboardingLoaded, hasSeenOnboarding]);
 
@@ -54,28 +56,49 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  // Wait for onboarding state to load before rendering
-  if (!loaded || !onboardingLoaded) return null;
+  // Route protection: allow onboarding and login without auth
+  useEffect(() => {
+    if (
+      !sessionLoading &&
+      onboardingLoaded &&
+      hasSeenOnboarding &&
+      !session?.isAuthenticated &&
+      pathname !== "/onboarding" &&
+      pathname !== "/login"
+    ) {
+      router.replace("/login");
+    }
+  }, [
+    sessionLoading,
+    onboardingLoaded,
+    hasSeenOnboarding,
+    session,
+    pathname,
+    router,
+  ]);
+
+  // Wait for onboarding state and session to load before rendering
+  if (!loaded || !onboardingLoaded || sessionLoading) return null;
   return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
   const pathname = usePathname();
-  const [colorMode, setColorMode] = useState<'light' | 'dark'>('light');
+  const [colorMode, setColorMode] = useState<"light" | "dark">("light");
 
   return (
     <GluestackUIProvider mode={colorMode}>
-      <ThemeProvider value={colorMode === 'dark' ? DarkTheme : DefaultTheme}>
+      <ThemeProvider value={colorMode === "dark" ? DarkTheme : DefaultTheme}>
         <Slot />
-        {pathname === '/' && (
+        {pathname === "/" && (
           <Fab
             onPress={() =>
-              setColorMode(colorMode === 'dark' ? 'light' : 'dark')
+              setColorMode(colorMode === "dark" ? "light" : "dark")
             }
             className="m-6"
             size="lg"
           >
-            <FabIcon as={colorMode === 'dark' ? MoonIcon : SunIcon} />
+            <FabIcon as={colorMode === "dark" ? MoonIcon : SunIcon} />
           </Fab>
         )}
       </ThemeProvider>
