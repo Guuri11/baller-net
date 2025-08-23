@@ -1,0 +1,19 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["tva\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
+  },
+  "i18n-ally.localesPaths": ["src/presentation/lib/locales"],
+  "eslint.validate": ["typescript", "javascript"],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onWindowChange",
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  // https://tanstack.com/router/latest/docs/framework/react/routing/installation-with-vite#ignoring-the-generated-route-tree-file
+  "i18n-ally.keystyle": "nested",
+}
