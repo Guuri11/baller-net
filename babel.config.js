@@ -16,10 +16,10 @@ module.exports = function (api) {
       [
         'module-resolver',
         {
-          root: ['./'],
+          root: ['./src/presentation/'],
 
           alias: {
-            '@': './',
+            '@': './src/presentation/',
             'tailwind.config': './tailwind.config.js',
           },
         },
