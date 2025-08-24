@@ -65,6 +65,15 @@ export function LoginForm() {
           <ButtonText>{i18n.t("login.submit")}</ButtonText>
         )}
       </Button>
+      <Button
+        variant="link"
+        style={{ marginTop: 16, alignSelf: "center" }}
+        onPress={() => router.push("/register")}
+      >
+        <ButtonText>
+          {i18n.t("login.createAccount", { defaultValue: "Create Account" })}
+        </ButtonText>
+      </Button>
     </View>
   );
 }

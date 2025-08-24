@@ -1,19 +1,126 @@
 {
-	"onboarding": {
-		"title": "¡Bienvenido a Baller Net!",
-		"description": "Baller Net es la red social de baloncesto donde puedes conectar, compartir y disfrutar de tu deporte favorito. ¡Descubre funciones, conoce fans y únete a la comunidad!",
-		"getStarted": "Comenzar"
-	},
-	"login": {
-		"title": "Inicia sesión en Baller Net",
-		"email": "Correo electrónico",
-		"password": "Contraseña",
-		"submit": "Iniciar sesión",
-		"error": "Correo o contraseña inválidos. Inténtalo de nuevo."
-	},
-	"session": {
-		"error": {
-			"not_authenticated": "Debes iniciar sesión para acceder a esta página."
-		}
-	}
+  "onboarding": {
+    "title": "¡Bienvenido a Baller Net!",
+    "description": "Baller Net es la red social de baloncesto donde puedes conectar, compartir y disfrutar de tu deporte favorito. ¡Descubre funciones, conoce fans y únete a la comunidad!",
+    "getStarted": "Comenzar",
+    "register": "Registrarse"
+  },
+  "login": {
+    "title": "Inicia sesión en Baller Net",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Iniciar sesión",
+    "createAccount": "Crear cuenta",
+    "error": "Correo o contraseña inválidos. Inténtalo de nuevo."
+  },
+  "session": {
+    "error": {
+      "not_authenticated": "Debes iniciar sesión para acceder a esta página.",
+      "invalid_credentials": "Correo o contraseña inválidos.",
+      "signin_failed": "Error al iniciar sesión. Inténtalo de nuevo."
+    }
+  },
+  "player": {
+    "error": {
+      "fetch_failed": "No se pudo obtener la información del jugador.",
+      "save_failed": "No se pudo guardar la información del jugador."
+    },
+    "position": {
+      "point_guard": "Base",
+      "shooting_guard": "Escolta",
+      "small_forward": "Alero",
+      "power_forward": "Ala-pívot",
+      "center": "Pívot"
+    },
+    "archetype": {
+      "slashing_playmaker": "Playmaker penetrador",
+      "sharp_shooting_playmaker": "Playmaker tirador",
+      "defensive_point_guard": "Base defensivo",
+      "three_and_d_point_guard": "Base 3&D",
+      "post_scoring_point_guard": "Base posteador",
+      "three_level_scorer": "Anotador de tres niveles",
+      "shot_creating_wing": "Alero generador de tiro",
+      "three_and_d_wing": "Alero 3&D",
+      "slashing_playmaker_guard": "Escolta penetrador",
+      "pure_shooter": "Tirador puro",
+      "all_around_superstar": "Superestrella total",
+      "three_and_d_small_forward": "Alero 3&D",
+      "slashing_playmaker_forward": "Alero penetrador",
+      "post_scoring_forward": "Alero posteador",
+      "defensive_specialist": "Especialista defensivo",
+      "stretch_four": "Ala-pívot abierto",
+      "glass_cleaner": "Reboteador",
+      "defensive_specialist_power_forward": "Ala-pívot defensivo",
+      "slashing_athletic_power_forward": "Ala-pívot atlético",
+      "post_scoring_power_forward": "Ala-pívot posteador",
+      "two_way_finishing_big": "Pívot finalizador dos vías",
+      "rim_protecting_post_scorer": "Pívot protector del aro",
+      "athletic_finishing_center": "Pívot atlético finalizador",
+      "stretch_five": "Pívot abierto",
+      "glass_cleaner_center": "Pívot reboteador"
+    }
+  },
+  "register": {
+    "user": {
+      "title": "Crea tu cuenta",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "next": "Siguiente",
+      "error": {
+        "required": "Todos los campos son obligatorios.",
+        "email_already_exists": "Este correo ya está registrado.",
+    "registration_failed": "El registro ha fallado. Inténtalo de nuevo.",
+    "rls_violation": "El registro falló por una política de seguridad. Contacta con soporte."
+      },
+      "backToLogin": "Volver al login"
+    },
+    "personal": {
+      "title": "Información personal",
+      "gender": {
+        "label": "Género",
+        "male": "Hombre",
+        "female": "Mujer",
+        "other": "Otro"
+      },
+      "birthday": "Fecha de nacimiento (AAAA-MM-DD)",
+      "birthday_invalid": "Fecha inválida. Usa AAAA-MM-DD y asegúrate de que la fecha sea válida.",
+      "birthday_future": "La fecha debe ser anterior a hoy.",
+      "username": "Nombre de usuario",
+      "next": "Siguiente",
+      "error": {
+        "required": "Todos los campos son obligatorios."
+      }
+    },
+    "physical": {
+      "title": "Información física",
+      "height": "Altura (cm)",
+      "weight": "Peso (kg)",
+      "next": "Siguiente",
+      "error": {
+        "required": "Todos los campos son obligatorios."
+      }
+    },
+    "career": {
+      "title": "Información de carrera",
+      "position": "Posición",
+      "team": "Equipo (opcional)",
+      "league": "Liga (opcional)",
+      "points": "Puntos por partido",
+      "assists": "Asistencias por partido",
+      "rebounds": "Rebotes por partido",
+      "blocks": "Bloqueos por partido",
+      "steals": "Robos por partido",
+      "next": "Siguiente",
+      "error": {
+        "required": "Todos los campos son obligatorios."
+      }
+    },
+    "archetype": {
+      "title": "Tu arquetipo",
+      "result": "Según tu información, tu arquetipo es:",
+      "summary": "¡Gracias por registrarte! Ya puedes empezar a usar Baller Net.",
+      "finish": "Finalizar"
+    }
+  }
 }

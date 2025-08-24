@@ -1,19 +1,126 @@
 {
-	"onboarding": {
-		"title": "Welcome to Baller Net!",
-		"description": "Baller Net is the basketball social network where you can connect, share, and engage with your favorite sport. Discover features, meet fans, and join the community!",
-		"getStarted": "Get Started"
-	},
-	"login": {
-		"title": "Sign in to Baller Net",
-		"email": "Email",
-		"password": "Password",
-		"submit": "Sign In",
-		"error": "Invalid email or password. Please try again."
-	},
-	"session": {
-		"error": {
-			"not_authenticated": "You must be signed in to access this page."
-		}
-	}
+  "onboarding": {
+    "title": "Welcome to Baller Net!",
+    "description": "Baller Net is the basketball social network where you can connect, share, and engage with your favorite sport. Discover features, meet fans, and join the community!",
+    "getStarted": "Get Started",
+    "register": "Register"
+  },
+  "login": {
+    "title": "Sign in to Baller Net",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign In",
+    "createAccount": "Create Account",
+    "error": "Invalid email or password. Please try again."
+  },
+  "session": {
+    "error": {
+      "not_authenticated": "You must be signed in to access this page.",
+      "invalid_credentials": "Invalid email or password.",
+      "signin_failed": "Sign in failed. Please try again."
+    }
+  },
+  "player": {
+    "error": {
+      "fetch_failed": "Could not fetch player data.",
+      "save_failed": "Could not save player data."
+    },
+    "position": {
+      "point_guard": "Point Guard",
+      "shooting_guard": "Shooting Guard",
+      "small_forward": "Small Forward",
+      "power_forward": "Power Forward",
+      "center": "Center"
+    },
+    "archetype": {
+        "slashing_playmaker": "Slashing Playmaker",
+        "sharp_shooting_playmaker": "Sharp Shooting Playmaker",
+        "defensive_point_guard": "Defensive Point Guard",
+        "three_and_d_point_guard": "Three & D Point Guard",
+        "post_scoring_point_guard": "Post Scoring Point Guard",
+        "three_level_scorer": "Three Level Scorer",
+        "shot_creating_wing": "Shot Creating Wing",
+        "three_and_d_wing": "Three & D Wing",
+        "slashing_playmaker_guard": "Slashing Playmaker Guard",
+        "pure_shooter": "Pure Shooter",
+        "all_around_superstar": "All-Around Superstar",
+        "three_and_d_small_forward": "Three & D Small Forward",
+        "slashing_playmaker_forward": "Slashing Playmaker Forward",
+        "post_scoring_forward": "Post Scoring Forward",
+        "defensive_specialist": "Defensive Specialist",
+        "stretch_four": "Stretch Four",
+        "glass_cleaner": "Glass Cleaner",
+        "defensive_specialist_power_forward": "Defensive Specialist Power Forward",
+        "slashing_athletic_power_forward": "Slashing Athletic Power Forward",
+        "post_scoring_power_forward": "Post Scoring Power Forward",
+        "two_way_finishing_big": "Two-Way Finishing Big",
+        "rim_protecting_post_scorer": "Rim Protecting Post Scorer",
+        "athletic_finishing_center": "Athletic Finishing Center",
+        "stretch_five": "Stretch Five",
+        "glass_cleaner_center": "Glass Cleaner Center"
+      }
+  },
+  "register": {
+    "user": {
+      "title": "Create your account",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "next": "Next",
+      "error": {
+        "required": "All fields are required.",
+        "email_already_exists": "This email is already registered.",
+    "registration_failed": "Registration failed. Please try again.",
+    "rls_violation": "Registration failed due to a security policy. Please contact support."
+      },
+      "backToLogin": "Back to login"
+    },
+    "personal": {
+      "title": "Personal Information",
+      "gender": {
+        "label": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "birthday": "Birthday (YYYY-MM-DD)",
+      "birthday_invalid": "Invalid date. Please use YYYY-MM-DD and ensure the date is valid.",
+      "birthday_future": "Date must be in the past.",
+      "username": "Username",
+      "next": "Next",
+      "error": {
+        "required": "All fields are required."
+      }
+    },
+    "physical": {
+      "title": "Physical Information",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "next": "Next",
+      "error": {
+        "required": "All fields are required."
+      }
+    },
+    "career": {
+      "title": "Career Information",
+      "position": "Position",
+      "team": "Team (optional)",
+      "league": "League (optional)",
+      "points": "Points per game",
+      "assists": "Assists per game",
+      "rebounds": "Rebounds per game",
+      "blocks": "Blocks per game",
+      "steals": "Steals per game",
+      "next": "Next",
+      "error": {
+        "required": "All fields are required."
+      }
+    },
+    "archetype": {
+      "title": "Your Archetype",
+      "result": "Based on your info, your archetype is:",
+      "summary": "Thank you for registering! You can now start using Baller Net.",
+      "finish": "Finish"
+    }
+  }
 }

@@ -1,3 +1,5 @@
+// Polyfill for crypto.getRandomValues (Expo/React Native)
+import "@presentation/lib/polyfills/crypto";
 import "@/global.css";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
@@ -10,8 +12,6 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import { useRouter, Slot, usePathname } from "expo-router";
 import { useSession } from "@presentation/lib/session";
-// ...existing code...
-import { StatusBar } from "expo-status-bar";
 import { useOnboardingStore } from "@presentation/lib/stores/onboardingStore";
 import { GluestackUIProvider } from "@presentation/components/ui/gluestack-ui-provider";
 import { Fab, FabIcon } from "@presentation/components/ui/fab";
@@ -64,7 +64,12 @@ export default function RootLayout() {
       hasSeenOnboarding &&
       !session?.isAuthenticated &&
       pathname !== "/onboarding" &&
-      pathname !== "/login"
+      pathname !== "/login" &&
+      pathname !== "/register" &&
+      pathname !== "/register/personal" &&
+      pathname !== "/register/physical" &&
+      pathname !== "/register/career" &&
+      pathname !== "/register/archetype"
     ) {
       router.replace("/login");
     }

@@ -1,15 +1,19 @@
 import React from "react";
-import { i18n } from "@/lib/locales/i18n";
+import { i18n } from "@presentation/lib/locales/i18n";
 import { Box } from "./ui/box";
 import { VStack } from "./ui/vstack";
 import { Text } from "./ui/text";
 import { Button, ButtonText } from "./ui/button";
+import { useRouter } from "expo-router";
+
 interface OnboardingScreenProps {
   onFinish: () => void;
 }
+
 export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
   onFinish,
 }) => {
+  const router = useRouter();
   return (
     <Box className="flex-1 justify-center items-center px-6">
       <VStack className="space-y-8 items-center">
@@ -22,8 +26,18 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
         <Button onPress={onFinish} className="mt-8">
           <ButtonText>{i18n.t("onboarding.getStarted")}</ButtonText>
         </Button>
+        <Button
+          variant="link"
+          style={{ marginTop: 8, alignSelf: "center" }}
+          onPress={() => router.push("/register")}
+        >
+          <ButtonText>
+            {i18n.t("onboarding.register", { defaultValue: "Register" })}
+          </ButtonText>
+        </Button>
       </VStack>
     </Box>
   );
 };
+
 export default OnboardingScreen;

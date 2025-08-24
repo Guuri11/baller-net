@@ -24,9 +24,12 @@
     "@react-aria/utils": "^3.29.0",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-navigation/native": "^7.1.6",
+    "@supabase/supabase-js": "^2.56.0",
+    "@types/uuid": "^10.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "dom-helpers": "^5.2.1",
     "expo": "53.0.20",
+    "expo-crypto": "^14.1.5",
     "expo-font": "~13.3.1",
     "expo-linking": "~7.1.5",
     "expo-localization": "^16.1.6",
@@ -51,6 +54,7 @@
     "react-stately": "^3.39.0",
     "tailwind-variants": "^0.1.20",
     "tailwindcss": "^3.4.17",
+    "uuid": "^11.1.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
